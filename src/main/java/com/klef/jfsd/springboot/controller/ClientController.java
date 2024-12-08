@@ -7,9 +7,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ClientController {
 	
-	 @GetMapping("/")
-	    public String home() {
-	        return "index"; // JSP file: /WEB-INF/views/index.jsp
-	    }
+	  @GetMapping("/")
+    public void home(HttpServletRequest request) {
+        // Forward the request to the JSP file
+        try {
+            request.getRequestDispatcher("/WEB-INF/views/index.jsp").forward(request, null);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 }
