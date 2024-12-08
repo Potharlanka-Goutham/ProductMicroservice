@@ -2,21 +2,25 @@ package com.klef.jfsd.springboot.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+//import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
 
-@RestController
+
+@Controller
 public class ClientController {
 	
-	  @GetMapping("/")
-    public void home(HttpServletRequest request) {
-        // Forward the request to the JSP file
-        try {
-            request.getRequestDispatcher("/WEB-INF/views/index.jsp").forward(request, null);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+	    @GetMapping("/")
+	    public String index() {
+	        return "index"; // JSP file: /WEB-INF/views/index.jsp
+	    }
+
+	  
+	 @GetMapping("/index")
+	 public ModelAndView index() 
+	 {
+		 ModelAndView mv = new ModelAndView("index");
+		 return mv;
+	 }
 
 }
