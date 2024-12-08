@@ -17,7 +17,7 @@ public class ClientController {
 
 	  
 	 @GetMapping("/index")
-	 public ModelAndView index() 
+	 public ModelAndView home() 
 	 {
 		 ModelAndView mv = new ModelAndView("index");
 		 return mv;
